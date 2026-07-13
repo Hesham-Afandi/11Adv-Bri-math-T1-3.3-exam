@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Grade 11 Advanced Math - Lesson 3: Trig Ratios on the Unit Circle (T1-3.3-exam)</title>
+    <title>🧮 Trigonometric Ratios on the Unit Circle Exam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         body.en-mode { font-family: 'Inter', sans-serif; }
@@ -25,7 +25,7 @@
             position: fixed; top: 16px; left: 16px; z-index: 100;
             background: white; padding: 6px; border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-            border: 2px solid #0d9488;
+            border: 2px solid #4f46e5;
         }
         [dir="ltr"] .lang-switch { left: auto; right: 16px; }
         .lang-btn {
@@ -33,8 +33,8 @@
             transition: all 0.3s; border: none; font-size: 0.875rem;
             background: transparent; color: #6b7280;
         }
-        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
-        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .lang-btn.active { background: #4f46e5; color: white; box-shadow: 0 2px 6px rgba(79,70,229,0.4); }
+        .lang-btn:hover:not(.active) { background: #eef2ff; color: #4f46e5; }
         .shuffle-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
     </style>
-<script src="/_aistudio-iframe.js"></script></head>
+</head>
 <body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
     <div class="lang-switch no-print">
@@ -56,24 +56,24 @@
     </div>
 
     <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
-        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-indigo-100">
             <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
-            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span id="timer" class="text-2xl font-bold text-indigo-600 font-mono">60:00</span>
             <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
         </div>
     </div>
 
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="toggleAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
         <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
-        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
     </div>
 
-    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-indigo-600">
         <div class="text-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الحادي عشر متقدم" data-en="⚡ Grade 11 Advanced Mathematics">⚡ رياضيات الصف الحادي عشر متقدم</h1>
-            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس الثالث: النسب المثلثية على دائرة الوحدة (الفصل الدراسي الأول)" data-en="Lesson 3: Trig Ratios on the Unit Circle (Term 1)">الدرس الثالث: النسب المثلثية على دائرة الوحدة (الفصل الدراسي الأول)</h2>
-            <p class="text-sm text-gray-600 mt-2" data-ar="حساب قيم النسب المثلثية للزوايا على دائرة الوحدة، تحديد الإشارات في الأرباع الأربعة وتطبيق متطابقة فيثاغورس." data-en="Calculating trigonometric ratios for angles on the unit circle, determining signs in the four quadrants, and applying Pythagorean identities.">حساب قيم النسب المثلثية للزوايا على دائرة الوحدة، تحديد الإشارات في الأرباع الأربعة وتطبيق متطابقة فيثاغورس.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="🧮 امتحان النسب المثلثية على دائرة الوحدة" data-en="🧮 Trigonometric Ratios on the Unit Circle Exam">🧮 امتحان النسب المثلثية على دائرة الوحدة</h1>
+            <h2 class="text-lg text-indigo-600 font-semibold" data-ar="Trigonometric Ratios on the Unit Circle" data-en="Trigonometric Ratios on the Unit Circle">Trigonometric Ratios on the Unit Circle</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="أسئلة تغطي: النسب المثلثية لأي زاوية، الزوايا الربعية وزوايا المرجع، إيجاد القيم المثلثية باستخدام زوايا المرجع ودائرة الوحدة، استخدام نسبة معلومة وتطبيقات حياتية، والنسب الدورية والدوال الدورية" data-en="Covers: Trigonometric Ratios for Any Angle, Quadrantal Angles & Reference Angles, Finding Trig Values Using Reference Angles & the Unit Circle, Using a Known Ratio & Real-Life Applications, and Circular / Periodic Functions">أسئلة تغطي: النسب المثلثية لأي زاوية، الزوايا الربعية وزوايا المرجع، إيجاد القيم المثلثية باستخدام زوايا المرجع ودائرة الوحدة، استخدام نسبة معلومة وتطبيقات حياتية، والنسب الدورية والدوال الدورية</p>
             <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
         </div>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -94,7 +94,7 @@
     <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
         <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
         <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-indigo-700">-</p></div>
             <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
             <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
         </div>
@@ -107,29 +107,29 @@
             <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
-                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="النسب المثلثية لأي زاوية" data-en="Trigonometric Ratios for Any Angle">النسب المثلثية لأي زاوية</span>
+                    <span id="sec1-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
-                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الزوايا الربعية وزوايا المرجع" data-en="Quadrantal & Reference Angles">الزوايا الربعية وزوايا المرجع</span>
+                    <span id="sec2-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
-                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="القيم المثلثية بزوايا المرجع ودائرة الوحدة" data-en="Trig Values via Reference Angles & Unit Circle">القيم المثلثية بزوايا المرجع ودائرة الوحدة</span>
+                    <span id="sec3-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
-                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="استخدام نسبة معلومة وتطبيقات حياتية" data-en="Using a Known Ratio & Real-Life Applications">استخدام نسبة معلومة وتطبيقات حياتية</span>
+                    <span id="sec4-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
-                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="النسب الدورية والدوال الدورية" data-en="Circular & Periodic Functions">النسب الدورية والدوال الدورية</span>
+                    <span id="sec5-score" class="font-bold text-indigo-600">0/4</span>
                 </div>
             </div>
         </div>
         <div class="text-center mb-6">
-            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
             <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
         </div>
         <div class="flex gap-3 justify-center">
@@ -138,10 +138,11 @@
     </div>
 
     <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-        © <span data-ar="رياضيات الصف 11 متقدم | الدرس الثالث: النسب المثلثية على دائرة الوحدة" data-en="Grade 11 Advanced Math | Lesson 3: Trig Ratios on the Unit Circle">رياضيات الصف 11 متقدم | الدرس الثالث: النسب المثلثية على دائرة الوحدة</span> | Platform 4U Education
+        © <span data-ar="Trigonometric Ratios on the Unit Circle" data-en="Trigonometric Ratios on the Unit Circle">Trigonometric Ratios on the Unit Circle</span> | Mr. Mohammed Hesham
     </footer>
 
 <script>
+// ==================== EmailJS Settings ====================
 const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
 const SERVICE_ID = "service_w15m64i";
 const TEMPLATE_ID = "template_5b0u2tq";
@@ -150,629 +151,254 @@ const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
 const originalExamData = {
-    "sections": [
+    sections: [
         {
-            "id": "sec1",
-            "title": {
-                "ar": "🔹 الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-                "en": "🔹 Part 1: Basic Concepts, Rules, and Definitions"
-            },
-            "questions": [
+            id: 'sec1',
+            title: { ar: '🔹 الجزء الأول: النسب المثلثية لأي زاوية', en: '🔹 Part 1: Trigonometric Ratios for Any Angle' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 1: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 1: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 1",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 1"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 1",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 1"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 1",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 1"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 1",
-                            "en": "Option D) A value outside the range of sine or cosine 1"
-                        }
+                    q: { ar: 'إذا كانت θ أي زاوية في وضع قياسي والنقطة P(x, y) على ضلع الانتهاء لها، وكان r = √(x²+y²)‎ ≠ 0، فما تعريف sin θ؟', en: 'If θ is any angle in standard position with point P(x, y) on its terminal side, and r = √(x²+y²) ≠ 0, how is sin θ defined?' },
+                    options: [
+                        { ar: 'sin θ = y/r', en: 'sin θ = y/r' },
+                        { ar: 'sin θ = x/r', en: 'sin θ = x/r' },
+                        { ar: 'sin θ = y/x', en: 'sin θ = y/x' },
+                        { ar: 'sin θ = r/y', en: 'sin θ = r/y' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'لأي زاوية θ في وضع قياسي ونقطة P(x, y) على ضلع انتهائها، تُعرَّف sin θ = y/r حيث r = √(x²+y²)', en: 'For any angle θ in standard position with P(x, y) on its terminal side, sin θ = y/r where r = √(x²+y²)' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 2: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 2: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 2",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 2"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 2",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 2"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 2",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 2"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 2",
-                            "en": "Option D) A value outside the range of sine or cosine 2"
-                        }
+                    q: { ar: 'النقطة (8, -6) تقع على ضلع الانتهاء للزاوية θ في الوضع القياسي. ما قيمة r؟', en: 'The point (8, -6) lies on the terminal side of angle θ in standard position. What is the value of r?' },
+                    options: [
+                        { ar: 'r = 10', en: 'r = 10' },
+                        { ar: 'r = 14', en: 'r = 14' },
+                        { ar: 'r = 2', en: 'r = 2' },
+                        { ar: 'r = 100', en: 'r = 100' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'r = √(x²+y²) = √(8² + (-6)²) = √100 = 10', en: 'r = √(x²+y²) = √(8² + (-6)²) = √100 = 10' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 3: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 3: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 3",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 3"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 3",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 3"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 3",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 3"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 3",
-                            "en": "Option D) A value outside the range of sine or cosine 3"
-                        }
+                    q: { ar: 'باستخدام النقطة (8, -6) على ضلع الانتهاء لـθ مع r = 10، ما قيمة sin θ؟', en: 'Using the point (8, -6) on the terminal side of θ with r = 10, what is sin θ?' },
+                    options: [
+                        { ar: 'sin θ = -3/5', en: 'sin θ = -3/5' },
+                        { ar: 'sin θ = 4/5', en: 'sin θ = 4/5' },
+                        { ar: 'sin θ = -4/3', en: 'sin θ = -4/3' },
+                        { ar: 'sin θ = 3/5', en: 'sin θ = 3/5' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'sin θ = y/r = -6/10 = -3/5', en: 'sin θ = y/r = -6/10 = -3/5' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 4: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 4: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 4",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 4"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 4",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 4"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 4",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 4"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 4",
-                            "en": "Option D) A value outside the range of sine or cosine 4"
-                        }
+                    q: { ar: 'إذا كانت النقطة (4, 3) على ضلع الانتهاء للزاوية θ في وضع قياسي، فما قيمة tan θ؟', en: 'If the point (4, 3) lies on the terminal side of angle θ in standard position, what is tan θ?' },
+                    options: [
+                        { ar: 'tan θ = 3/4', en: 'tan θ = 3/4' },
+                        { ar: 'tan θ = 4/3', en: 'tan θ = 4/3' },
+                        { ar: 'tan θ = 3/5', en: 'tan θ = 3/5' },
+                        { ar: 'tan θ = 4/5', en: 'tan θ = 4/5' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'باستخدام x=4 وy=3، فإن tan θ = y/x = 3/4', en: 'Using x=4 and y=3, tan θ = y/x = 3/4' }
                 }
             ]
         },
         {
-            "id": "sec2",
-            "title": {
-                "ar": "🔹 الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-                "en": "🔹 Part 2: Calculations and Exact Numerical Solutions"
-            },
-            "questions": [
+            id: 'sec2',
+            title: { ar: '🔹 الجزء الثاني: الزوايا الربعية وزوايا المرجع', en: '🔹 Part 2: Quadrantal & Reference Angles' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 5: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ إشارات النسب المثلثية في الأرباع الأربعة ASTC للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 5: In the trigonometry and periodic functions lesson, solve the problem regarding إشارات النسب المثلثية في الأرباع الأربعة ASTC to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 5",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 5"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 5",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 5"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 5",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 5"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 5",
-                            "en": "Option D) A value outside the range of sine or cosine 5"
-                        }
+                    q: { ar: 'متى تسمى الزاوية θ في الوضع القياسي "زاوية ربعية"؟', en: 'When is an angle θ in standard position called a "quadrantal angle"?' },
+                    options: [
+                        { ar: 'عندما يقع ضلع انتهائها واقعاً على أحد محاور الإحداثي', en: "When its terminal side lies on one of the coordinate axes" },
+                        { ar: 'عندما تكون الزاوية حادة فقط', en: 'When the angle is acute only' },
+                        { ar: 'عندما يكون قياسها 45° بالضبط', en: 'When its measure is exactly 45°' },
+                        { ar: 'عندما يقع ضلع انتهائها في الربع الأول فقط', en: 'When its terminal side lies only in Quadrant I' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ إشارات النسب المثلثية في الأرباع الأربعة ASTC بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of إشارات النسب المثلثية في الأرباع الأربعة ASTC while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'عندما يكون ضلع الانتهاء لزاوية θ تتخذ الوضع القياسي واقعاً على أحد محاور الإحداثي، فإن الزاوية تسمى زاوية ربعية', en: 'When the terminal side of an angle θ in standard position lies on one of the coordinate axes, the angle is called a quadrantal angle' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 6: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ إشارات النسب المثلثية في الأرباع الأربعة ASTC للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 6: In the trigonometry and periodic functions lesson, solve the problem regarding إشارات النسب المثلثية في الأرباع الأربعة ASTC to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 6",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 6"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 6",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 6"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 6",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 6"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 6",
-                            "en": "Option D) A value outside the range of sine or cosine 6"
-                        }
+                    q: { ar: 'ما تعريف "زاوية المرجع" θ′ لزاوية θ في وضع قياسي؟', en: 'What is the definition of the "reference angle" θ′ of an angle θ in standard position?' },
+                    options: [
+                        { ar: 'هي زاوية حادة يشكلها ضلع الانتهاء لـθ والمحور الأفقي x', en: 'It is the acute angle formed by the terminal side of θ and the horizontal x-axis' },
+                        { ar: 'هي الزاوية المتممة لـθ دائماً', en: 'It is always the complement of θ' },
+                        { ar: 'هي زاوية منفرجة تقع في الربع الثاني', en: 'It is an obtuse angle located in Quadrant II' },
+                        { ar: 'هي نفس قياس θ دائماً بغض النظر عن الربع', en: 'It is always equal to the measure of θ regardless of the quadrant' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ إشارات النسب المثلثية في الأرباع الأربعة ASTC بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of إشارات النسب المثلثية في الأرباع الأربعة ASTC while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'زاوية المرجع θ′ لزاوية θ في وضع قياسي هي زاوية حادة يشكلها ضلع الانتهاء لـθ والمحور الأفقي x', en: 'The reference angle θ′ of an angle θ in standard position is the acute angle formed by the terminal side of θ and the horizontal x-axis' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 7: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ إشارات النسب المثلثية في الأرباع الأربعة ASTC للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 7: In the trigonometry and periodic functions lesson, solve the problem regarding إشارات النسب المثلثية في الأرباع الأربعة ASTC to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 7",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 7"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 7",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 7"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 7",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 7"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 7",
-                            "en": "Option D) A value outside the range of sine or cosine 7"
-                        }
+                    q: { ar: 'إذا كان ضلع انتهاء الزاوية θ يقع في الربع الثاني، فما قاعدة إيجاد زاوية المرجع θ′ بالدرجات؟', en: "If the terminal side of angle θ lies in Quadrant II, what is the rule for finding the reference angle θ′ in degrees?" },
+                    options: [
+                        { ar: 'θ′ = 180° - θ', en: 'θ′ = 180° - θ' },
+                        { ar: 'θ′ = θ - 180°', en: 'θ′ = θ - 180°' },
+                        { ar: 'θ′ = 360° - θ', en: 'θ′ = 360° - θ' },
+                        { ar: 'θ′ = θ', en: 'θ′ = θ' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ إشارات النسب المثلثية في الأرباع الأربعة ASTC بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of إشارات النسب المثلثية في الأرباع الأربعة ASTC while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'في الربع الثاني، تُحسب زاوية المرجع بالقاعدة θ′ = 180° - θ', en: 'In Quadrant II, the reference angle is found using θ′ = 180° - θ' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 8: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ إشارات النسب المثلثية في الأرباع الأربعة ASTC للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 8: In the trigonometry and periodic functions lesson, solve the problem regarding إشارات النسب المثلثية في الأرباع الأربعة ASTC to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 8",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 8"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 8",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 8"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 8",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 8"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 8",
-                            "en": "Option D) A value outside the range of sine or cosine 8"
-                        }
+                    q: { ar: 'ما زاوية المرجع للزاوية 300°؟', en: "What is the reference angle for 300°?" },
+                    options: [
+                        { ar: '60°', en: '60°' },
+                        { ar: '120°', en: '120°' },
+                        { ar: '30°', en: '30°' },
+                        { ar: '300°', en: '300°' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ إشارات النسب المثلثية في الأرباع الأربعة ASTC بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of إشارات النسب المثلثية في الأرباع الأربعة ASTC while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'ضلع انتهاء الزاوية 300° يقع في الربع IV، فزاوية المرجع θ′ = 360° - 300° = 60°', en: "The terminal side of 300° lies in Quadrant IV, so θ′ = 360° - 300° = 60°" }
                 }
             ]
         },
         {
-            "id": "sec3",
-            "title": {
-                "ar": "🔹 الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-                "en": "🔹 Part 3: Advanced Skills, Applications, and Problems"
-            },
-            "questions": [
+            id: 'sec3',
+            title: { ar: '🔹 الجزء الثالث: القيم المثلثية بزوايا المرجع ودائرة الوحدة', en: '🔹 Part 3: Trig Values via Reference Angles & Unit Circle' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 9: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ متطابقات فيثاغورس المثلثية الأساسية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 9: In the trigonometry and periodic functions lesson, solve the problem regarding متطابقات فيثاغورس المثلثية الأساسية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 9",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 9"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 9",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 9"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 9",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 9"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 9",
-                            "en": "Option D) A value outside the range of sine or cosine 9"
-                        }
+                    q: { ar: 'ما قيمة sin (-180°)؟', en: 'What is the value of sin (-180°)?' },
+                    options: [
+                        { ar: '0', en: '0' },
+                        { ar: '1', en: '1' },
+                        { ar: '-1', en: '-1' },
+                        { ar: 'غير معرَّفة', en: 'Undefined' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ متطابقات فيثاغورس المثلثية الأساسية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of متطابقات فيثاغورس المثلثية الأساسية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'ضلع انتهاء الزاوية -180° يقع على المحور الأفقي السالب x عند النقطة (-1, 0) حيث r=1، فـ sin(-180°) = y/r = 0/1 = 0', en: 'The terminal side of -180° lies on the negative x-axis at (-1, 0) with r=1, so sin(-180°) = y/r = 0/1 = 0' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 10: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ متطابقات فيثاغورس المثلثية الأساسية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 10: In the trigonometry and periodic functions lesson, solve the problem regarding متطابقات فيثاغورس المثلثية الأساسية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 10",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 10"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 10",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 10"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 10",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 10"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 10",
-                            "en": "Option D) A value outside the range of sine or cosine 10"
-                        }
+                    q: { ar: 'ما قيمة tan (3π/2)؟', en: 'What is the value of tan (3π/2)?' },
+                    options: [
+                        { ar: 'غير معرَّفة', en: 'Undefined' },
+                        { ar: '0', en: '0' },
+                        { ar: '1', en: '1' },
+                        { ar: '-1', en: '-1' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ متطابقات فيثاغورس المثلثية الأساسية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of متطابقات فيثاغورس المثلثية الأساسية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'ضلع انتهاء الزاوية 3π/2 يقع عند النقطة (0, -1)، فـ tan(3π/2) = y/x = -1/0 وهي غير معرَّفة', en: 'The terminal side of 3π/2 lies at (0, -1), so tan(3π/2) = y/x = -1/0, which is undefined' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 11: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ متطابقات فيثاغورس المثلثية الأساسية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 11: In the trigonometry and periodic functions lesson, solve the problem regarding متطابقات فيثاغورس المثلثية الأساسية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 11",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 11"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 11",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 11"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 11",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 11"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 11",
-                            "en": "Option D) A value outside the range of sine or cosine 11"
-                        }
+                    q: { ar: 'باستخدام زاوية المرجع، ما قيمة cos 120°؟', en: 'Using the reference angle, what is the value of cos 120°?' },
+                    options: [
+                        { ar: '-1/2', en: '-1/2' },
+                        { ar: '1/2', en: '1/2' },
+                        { ar: '-√3/2', en: '-√3/2' },
+                        { ar: '√3/2', en: '√3/2' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ متطابقات فيثاغورس المثلثية الأساسية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of متطابقات فيثاغورس المثلثية الأساسية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'زاوية المرجع لـ 120° هي 60°، وبما أن cos سالبة في الربع II فإن cos120° = -cos60° = -1/2', en: "The reference angle for 120° is 60°, and since cosine is negative in Quadrant II, cos120° = -cos60° = -1/2" }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 12: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ متطابقات فيثاغورس المثلثية الأساسية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 12: In the trigonometry and periodic functions lesson, solve the problem regarding متطابقات فيثاغورس المثلثية الأساسية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 12",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 12"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 12",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 12"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 12",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 12"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 12",
-                            "en": "Option D) A value outside the range of sine or cosine 12"
-                        }
+                    q: { ar: 'باستخدام دائرة الوحدة ذات 16 نقطة، ما قيمة sin (π/3)؟', en: 'Using the 16-point unit circle, what is the value of sin (π/3)?' },
+                    options: [
+                        { ar: '√3/2', en: '√3/2' },
+                        { ar: '1/2', en: '1/2' },
+                        { ar: '√2/2', en: '√2/2' },
+                        { ar: '1', en: '1' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ متطابقات فيثاغورس المثلثية الأساسية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of متطابقات فيثاغورس المثلثية الأساسية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'النقطة المطابقة لـ π/3 على دائرة الوحدة هي (1/2, √3/2)، وبما أن sin t = y فإن sin(π/3) = √3/2', en: 'The point corresponding to π/3 on the unit circle is (1/2, √3/2), and since sin t = y, sin(π/3) = √3/2' }
                 }
             ]
         },
         {
-            "id": "sec4",
-            "title": {
-                "ar": "🔹 الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-                "en": "🔹 Part 4: Mathematical Modeling, Graphing, and Practical Problems"
-            },
-            "questions": [
+            id: 'sec4',
+            title: { ar: '🔹 الجزء الرابع: استخدام نسبة معلومة وتطبيقات حياتية', en: '🔹 Part 4: Using a Known Ratio & Real-Life Applications' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 13: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ النسب المثلثية للزوايا الربعية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 13: In the trigonometry and periodic functions lesson, solve the problem regarding النسب المثلثية للزوايا الربعية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 13",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 13"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 13",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 13"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 13",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 13"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 13",
-                            "en": "Option D) A value outside the range of sine or cosine 13"
-                        }
+                    q: { ar: 'إذا كان tan θ = 5/12 موجبة و sin θ < 0، ففي أي ربع يقع ضلع الانتهاء للزاوية θ؟', en: 'If tan θ = 5/12 is positive and sin θ < 0, in which quadrant does the terminal side of θ lie?' },
+                    options: [
+                        { ar: 'الربع الثالث', en: 'Quadrant III' },
+                        { ar: 'الربع الأول', en: 'Quadrant I' },
+                        { ar: 'الربع الثاني', en: 'Quadrant II' },
+                        { ar: 'الربع الرابع', en: 'Quadrant IV' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ النسب المثلثية للزوايا الربعية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of النسب المثلثية للزوايا الربعية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بما أن tan θ موجبة و sin θ سالبة، يجب أن يكون كل من x وy سالبتين، وهذا يقع في الربع الثالث', en: 'Since tan θ is positive and sin θ is negative, both x and y must be negative, which occurs in Quadrant III' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 14: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ النسب المثلثية للزوايا الربعية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 14: In the trigonometry and periodic functions lesson, solve the problem regarding النسب المثلثية للزوايا الربعية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 14",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 14"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 14",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 14"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 14",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 14"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 14",
-                            "en": "Option D) A value outside the range of sine or cosine 14"
-                        }
+                    q: { ar: 'باستخدام tan θ = 5/12 (أو -5/-12) مع النقطة (-12, -5) حيث r = 13، ما قيمة sin θ؟', en: 'Using tan θ = 5/12 with the point (-12, -5) where r = 13, what is sin θ?' },
+                    options: [
+                        { ar: 'sin θ = -5/13', en: 'sin θ = -5/13' },
+                        { ar: 'sin θ = 5/13', en: 'sin θ = 5/13' },
+                        { ar: 'sin θ = -12/13', en: 'sin θ = -12/13' },
+                        { ar: 'sin θ = 12/13', en: 'sin θ = 12/13' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ النسب المثلثية للزوايا الربعية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of النسب المثلثية للزوايا الربعية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'باستخدام y=-5 وr=13، فإن sin θ = y/r = -5/13', en: 'Using y=-5 and r=13, sin θ = y/r = -5/13' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 15: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ النسب المثلثية للزوايا الربعية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 15: In the trigonometry and periodic functions lesson, solve the problem regarding النسب المثلثية للزوايا الربعية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 15",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 15"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 15",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 15"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 15",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 15"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 15",
-                            "en": "Option D) A value outside the range of sine or cosine 15"
-                        }
+                    q: { ar: 'في مثال ذراع الإنسان الآلي، تدور الذراع بزاوية 225° بالضبط من نقطة على المحور x الموجب. ما زاوية المرجع لهذا الدوران؟', en: "In the robotic arm example, the arm rotates exactly 225° from a point on the positive x-axis. What is the reference angle for this rotation?" },
+                    options: [
+                        { ar: '45°', en: '45°' },
+                        { ar: '35°', en: '35°' },
+                        { ar: '225°', en: '225°' },
+                        { ar: '90°', en: '90°' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ النسب المثلثية للزوايا الربعية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of النسب المثلثية للزوايا الربعية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'زاوية المرجع لـ 225° هي 225° - 180° = 45°', en: 'The reference angle for 225° is 225° - 180° = 45°' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 16: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ النسب المثلثية للزوايا الربعية للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 16: In the trigonometry and periodic functions lesson, solve the problem regarding النسب المثلثية للزوايا الربعية to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 16",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 16"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 16",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 16"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 16",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 16"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 16",
-                            "en": "Option D) A value outside the range of sine or cosine 16"
-                        }
+                    q: { ar: 'ذراع آلي طوله r = 20 سم يدور بزاوية 225°. باستخدام cos225° = -cos45° = -√2/2، ما الإحداثي x للنقطة D؟', en: 'A 20 cm robotic arm rotates through 225°. Using cos225° = -cos45° = -√2/2, what is the x-coordinate of point D?' },
+                    options: [
+                        { ar: 'x = -10√2', en: 'x = -10√2' },
+                        { ar: 'x = 10√2', en: 'x = 10√2' },
+                        { ar: 'x = -20', en: 'x = -20' },
+                        { ar: 'x = -√2/2', en: 'x = -√2/2' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ النسب المثلثية للزوايا الربعية بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of النسب المثلثية للزوايا الربعية while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'cos225° = x/20، وبما أن cos225° = -√2/2 فإن x = 20(-√2/2) = -10√2', en: 'cos225° = x/20, and since cos225° = -√2/2, x = 20(-√2/2) = -10√2' }
                 }
             ]
         },
         {
-            "id": "sec5",
-            "title": {
-                "ar": "🔹 الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي",
-                "en": "🔹 Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-            },
-            "questions": [
+            id: 'sec5',
+            title: { ar: '🔹 الجزء الخامس: النسب الدورية والدوال الدورية', en: '🔹 Part 5: Circular & Periodic Functions' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 17: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 17: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 17",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 17"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 17",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 17"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 17",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 17"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 17",
-                            "en": "Option D) A value outside the range of sine or cosine 17"
-                        }
+                    q: { ar: 'ما تعريف الدالة الدورية f(t) = y؟', en: 'What is the definition of a periodic function f(t) = y?' },
+                    options: [
+                        { ar: 'دالة يوجد لها عدد حقيقي موجب c بحيث f(t + c) = f(t) لكل t في مجال f', en: 'A function for which there exists a positive real number c such that f(t + c) = f(t) for all t in the domain of f' },
+                        { ar: 'دالة قيمتها تزداد باستمرار مع t', en: 'A function whose value continually increases with t' },
+                        { ar: 'دالة تكون فيها x = y دائماً', en: 'A function in which x = y always' },
+                        { ar: 'دالة غير معرَّفة عند أي قيمة سالبة لـ t', en: 'A function undefined for any negative value of t' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة f(t) = y تكون دورية إذا وُجد عدد حقيقي موجب c بحيث f(t + c) = f(t) لكل قيم t في مجال f', en: 'The function f(t) = y is periodic if there exists a positive real number c such that f(t + c) = f(t) for all t in the domain of f' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 18: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 18: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 18",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 18"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 18",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 18"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 18",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 18"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 18",
-                            "en": "Option D) A value outside the range of sine or cosine 18"
-                        }
+                    q: { ar: 'ما دورة كل من نسبتي sin و cos، وما دورة نسبة tan؟', en: 'What is the period of sin and cos, and what is the period of tan?' },
+                    options: [
+                        { ar: 'دورة sin و cos هي 2π، ودورة tan هي π', en: 'The period of sin and cos is 2π, and the period of tan is π' },
+                        { ar: 'دورة الجميع هي π', en: 'All three have a period of π' },
+                        { ar: 'دورة sin و cos هي π، ودورة tan هي 2π', en: 'The period of sin and cos is π, and the period of tan is 2π' },
+                        { ar: 'دورة الجميع هي 2π', en: 'All three have a period of 2π' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'نسبتا sin و cos دوريتان بدورة 2π، بينما نسبة tan دورية بدورة π لأن قيمها تتكرر بعد مسافة π على خط الأعداد', en: 'Sine and cosine are periodic with period 2π, while tangent is periodic with period π since its values repeat after a distance of π on the number line' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 19: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 19: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 19",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 19"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 19",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 19"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 19",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 19"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 19",
-                            "en": "Option D) A value outside the range of sine or cosine 19"
-                        }
+                    q: { ar: 'باستخدام الطبيعة الدورية، ما قيمة cos (11π/4)؟', en: 'Using periodicity, what is the value of cos (11π/4)?' },
+                    options: [
+                        { ar: '-√2/2', en: '-√2/2' },
+                        { ar: '√2/2', en: '√2/2' },
+                        { ar: '-1/2', en: '-1/2' },
+                        { ar: '1/2', en: '1/2' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: '11π/4 = 3π/4 + 2π، والنقطة المرتبطة بـ3π/4 على دائرة الوحدة هي (-√2/2, √2/2)، فـ cos(11π/4) = cos(3π/4) = -√2/2', en: '11π/4 = 3π/4 + 2π, and the point associated with 3π/4 on the unit circle is (-√2/2, √2/2), so cos(11π/4) = cos(3π/4) = -√2/2' }
                 },
                 {
-                    "q": {
-                        "ar": "سؤال تفاعلي 20: في درس حساب المثلثات والدوال الدورية، حل المسألة الخاصة بـ دائرة الوحدة والإحداثيات x و y للوصول للقيمة الدقيقة للزاوية أو النسبة؟",
-                        "en": "Interactive Question 20: In the trigonometry and periodic functions lesson, solve the problem regarding دائرة الوحدة والإحداثيات x و y to get the exact value of the angle or ratio?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخيار أ) القيمة الدقيقة للنسبة المثلثية أو القياس الدائري الصحيح 20",
-                            "en": "Option A) The exact value of the trigonometric ratio or correct radian measure 20"
-                        },
-                        {
-                            "ar": "الخيار ب) قيمة خاطئة ناتجة عن خلط إشارة الربع أو تبديل المحاور 20",
-                            "en": "Option B) Incorrect value resulting from quadrant sign mix-up or axes swapping 20"
-                        },
-                        {
-                            "ar": "الخيار ج) النسبة المقلوبة الخاطئة للزاوية المرجعية 20",
-                            "en": "Option C) The wrong reciprocal ratio for the reference angle 20"
-                        },
-                        {
-                            "ar": "الخيار د) قيمة خارج مدى دالة الجيب أو جيب التمام 20",
-                            "en": "Option D) A value outside the range of sine or cosine 20"
-                        }
+                    q: { ar: 'أي العلاقات التالية صحيحة بخصوص زوجية/فردية النسب المثلثية؟', en: 'Which of the following relations is correct regarding the even/odd nature of trig ratios?' },
+                    options: [
+                        { ar: 'cos(-t) = cos t، بينما sin(-t) = -sin t و tan(-t) = -tan t', en: 'cos(-t) = cos t, while sin(-t) = -sin t and tan(-t) = -tan t' },
+                        { ar: 'cos(-t) = -cos t و sin(-t) = sin t دائماً', en: 'cos(-t) = -cos t and sin(-t) = sin t always' },
+                        { ar: 'جميع النسب الثلاث فردية', en: 'All three ratios are odd' },
+                        { ar: 'جميع النسب الثلاث زوجية', en: 'All three ratios are even' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحل يتطلب مراجعة دائرة الوحدة أو تطبيق القوانين الأساسية لـ دائرة الوحدة والإحداثيات x و y بدقة مع مراعاة القيود والمجالات المسموحة.",
-                        "en": "The solution requires reviewing the unit circle or accurately applying the core formulas of دائرة الوحدة والإحداثيات x و y while respecting limits and allowed domains."
-                    }
+                    correct: 0,
+                    answer: { ar: 'باستخدام دائرة الوحدة يمكن التحقق من أن دالة cos زوجية: cos(-t) = cos t، وأن دالتي sin و tan فرديتان: sin(-t) = -sin t و tan(-t) = -tan t', en: 'Using the unit circle, cos is verified to be even: cos(-t) = cos t, while sin and tan are odd: sin(-t) = -sin t and tan(-t) = -tan t' }
                 }
             ]
         }
@@ -818,6 +444,8 @@ function prepareShuffledExam() {
             globalIdx++;
         });
     });
+    
+    console.log('✅ تم خلط الأسئلة والخيارات بنجاح');
 }
 
 function reshuffleExam() {
@@ -854,8 +482,8 @@ function setLanguage(lang) {
 function renderExam() {
     const container = document.getElementById('exam-content');
     const labels = {
-        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
-        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' }
     };
     const lbl = labels[currentLang];
     const isRTL = currentLang === 'ar';
@@ -866,13 +494,13 @@ function renderExam() {
     examData.sections.forEach((section) => {
         html += `
         <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <h2 class="text-xl font-bold mb-4 text-indigo-700">${section.title[currentLang]}</h2>
             <ol class="space-y-4 text-sm">`;
             
         section.questions.forEach((q) => {
             const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
             html += `
-                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                <li class="${borderSide} border-indigo-500 py-2" id="q-${globalIdx}">
                     <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
                     
             q.options.forEach((opt, oIdx) => {
@@ -937,17 +565,15 @@ function gradeExam() {
                 correctCount++;
                 li.classList.add('correct');
                 li.classList.remove('incorrect');
-            } else {
-                li.classList.add('incorrect');
-                li.classList.remove('correct');
-            }
-
-            if (isCorrect) {
+                
                 if (i < 4) sec1++;
                 else if (i < 8) sec2++;
                 else if (i < 12) sec3++;
                 else if (i < 16) sec4++;
                 else sec5++;
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
             }
         }
     }
@@ -955,7 +581,7 @@ function gradeExam() {
     const score = (correctCount / 20) * 100;
     const successRate = Math.round(score);
     
-    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
     document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     
@@ -1000,43 +626,31 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
 
     const sectionNames = {
-        ar: [
-            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
-        ],
-        en: [
-            "Part 1: Basic Concepts, Rules, and Definitions",
-            "Part 2: Calculations and Exact Numerical Solutions",
-            "Part 3: Advanced Skills, Applications, and Problems",
-            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
-            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-        ]
+        ar: ['النسب المثلثية لأي زاوية', 'الزوايا الربعية وزوايا المرجع', 'القيم المثلثية بزوايا المرجع ودائرة الوحدة', 'استخدام نسبة معلومة وتطبيقات حياتية', 'النسب الدورية والدوال الدورية'],
+        en: ['Trigonometric Ratios for Any Angle', 'Quadrantal & Reference Angles', 'Trig Values via Reference Angles & Unit Circle', 'Using a Known Ratio & Real-Life Applications', 'Circular & Periodic Functions']
     };
     const currentSectionNames = sectionNames[currentLang];
 
     let answersHTML = `
-        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: ${currentLang === 'ar' ? 'right' : 'left'};">
-            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
-                <h2 style="margin: 0; font-size: 22px;">⚡ ${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'رياضيات الصف الحادي عشر متقدم | الفصل الدراسي الأول' : 'Grade 11 Advanced Math | Term 1'}</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};">
+            <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">🧮 ${currentLang === 'ar' ? 'نتيجة امتحان النسب المثلثية على دائرة الوحدة' : 'Trigonometric Ratios on the Unit Circle Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'Trigonometric Ratios on the Unit Circle' : 'Trigonometric Ratios on the Unit Circle'}</p>
                 <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 ${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
             </div>
             
-            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+            <div style="background: #eef2ff; padding: 15px; border: 1px solid #c7d2fe;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
                         <td style="padding: 8px;">${name}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
                         <td style="padding: 8px;">${studentClass}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
                         <td style="padding: 8px;">${date}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #4338ca;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
                         <td style="padding: 8px;">${badge}</td>
                     </tr>
                 </table>
@@ -1044,7 +658,7 @@ function sendResultsToEmail() {
 
             <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">${score}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #4f46e5;">${score}</div>
                     <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
                 </div>
                 <div style="display: inline-block; margin: 0 15px;">
@@ -1054,16 +668,16 @@ function sendResultsToEmail() {
             </div>
 
             <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
-                ${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+                📝 ${currentLang === 'ar' ? 'تفاصيل الإجابات' : 'Answer Details'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #0d9488; color: white;">
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    <tr style="background: #4f46e5; color: white;">
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #4338ca; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1106,7 +720,7 @@ function sendResultsToEmail() {
                 </tbody>
             </table>
 
-            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #4f46e5;">
                 📊 ${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -1128,7 +742,7 @@ function sendResultsToEmail() {
         answersHTML += `
             <tr style="background: ${rowBg};">
                 <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">${currentSectionNames[i]}</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #4f46e5;">
                     ${sectionScores[i]} / ${sectionTotals[i]}
                 </td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb;">
